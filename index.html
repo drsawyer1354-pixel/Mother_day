@@ -1,0 +1,1714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Mother's Day — A Tribute to You</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A96E;
+    --gold-light: #E8D5A8;
+    --gold-shimmer: #F5E6C8;
+    --blush: #F2C4CE;
+    --blush-light: #FADDE4;
+    --rose: #B5566B;
+    --rose-deep: #8E3A4F;
+    --ivory: #FAF6F0;
+    --ivory-warm: #F7F0E6;
+    --deep: #2C1A1D;
+    --deep-soft: #4A2E33;
+    --cream: #FFF8F0;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'Cormorant Garamond', 'Times New Roman', serif;
+  }
+
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--ivory);
+    color: var(--deep);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ═══════════════════════════════════════
+     ANIMATED GRADIENT MESH BACKGROUND
+  ═══════════════════════════════════════ */
+  .gradient-mesh {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.4;
+  }
+
+  .gradient-mesh .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    will-change: transform;
+  }
+
+  .gradient-mesh .blob:nth-child(1) {
+    width: 60vw; height: 60vw;
+    background: radial-gradient(circle, var(--blush) 0%, transparent 70%);
+    top: -10%; left: -10%;
+    animation: meshFloat1 20s ease-in-out infinite;
+  }
+
+  .gradient-mesh .blob:nth-child(2) {
+    width: 50vw; height: 50vw;
+    background: radial-gradient(circle, var(--gold-light) 0%, transparent 70%);
+    top: 30%; right: -15%;
+    animation: meshFloat2 25s ease-in-out infinite;
+  }
+
+  .gradient-mesh .blob:nth-child(3) {
+    width: 45vw; height: 45vw;
+    background: radial-gradient(circle, var(--blush-light) 0%, transparent 70%);
+    bottom: -5%; left: 20%;
+    animation: meshFloat3 22s ease-in-out infinite;
+  }
+
+  .gradient-mesh .blob:nth-child(4) {
+    width: 35vw; height: 35vw;
+    background: radial-gradient(circle, var(--gold-shimmer) 0%, transparent 70%);
+    top: 50%; left: 50%;
+    animation: meshFloat4 18s ease-in-out infinite;
+  }
+
+  @keyframes meshFloat1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(15vw, 10vh) scale(1.1); }
+    66% { transform: translate(-5vw, 20vh) scale(0.95); }
+  }
+
+  @keyframes meshFloat2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(-20vw, 15vh) scale(1.05); }
+    66% { transform: translate(-10vw, -10vh) scale(1.1); }
+  }
+
+  @keyframes meshFloat3 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(10vw, -15vh) scale(1.08); }
+  }
+
+  @keyframes meshFloat4 {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-30%, -60%) scale(1.15); }
+  }
+
+  /* ═══════════════════════════════════════
+     PETAL CANVAS
+  ═══════════════════════════════════════ */
+  #petalCanvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* ═══════════════════════════════════════
+     HERO SECTION
+  ═══════════════════════════════════════ */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    text-align: center;
+    padding: 2rem;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at 50% 40%, transparent 0%, rgba(250,246,240,0.3) 70%);
+    z-index: -1;
+  }
+
+  .hero-ornament {
+    width: 120px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 0 auto 2rem;
+    position: relative;
+    opacity: 0;
+    animation: fadeSlideUp 1.2s ease 0.3s forwards;
+  }
+
+  .hero-ornament::before {
+    content: '✦';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.7rem;
+    color: var(--gold);
+    background: var(--ivory);
+    padding: 0 12px;
+  }
+
+  .hero-subtitle-top {
+    font-family: var(--font-body);
+    font-size: clamp(0.85rem, 1.5vw, 1.1rem);
+    font-weight: 400;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeSlideUp 1.2s ease 0.5s forwards;
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 7.5rem);
+    font-weight: 700;
+    line-height: 1.05;
+    color: var(--deep);
+    margin-bottom: 0.3em;
+    position: relative;
+    opacity: 0;
+    animation: fadeSlideUp 1.4s ease 0.7s forwards;
+  }
+
+  .hero-title .line {
+    display: block;
+  }
+
+  .hero-title .shimmer-text {
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(
+      110deg,
+      var(--deep) 0%,
+      var(--deep) 35%,
+      var(--gold) 42%,
+      var(--gold-shimmer) 50%,
+      var(--gold) 58%,
+      var(--deep) 65%,
+      var(--deep) 100%
+    );
+    background-size: 250% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 4s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: 200% center; }
+    100% { background-position: -200% center; }
+  }
+
+  .hero-subline {
+    font-family: var(--font-body);
+    font-size: clamp(1.1rem, 2.5vw, 1.65rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--rose);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+    opacity: 0;
+    animation: fadeSlideUp 1.4s ease 1s forwards;
+  }
+
+  .hero-ornament-bottom {
+    width: 200px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 2.5rem auto 0;
+    opacity: 0;
+    animation: fadeSlideUp 1.2s ease 1.3s forwards;
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0;
+    animation: fadeSlideUp 1s ease 2s forwards;
+  }
+
+  .scroll-indicator span {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .scroll-indicator .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: var(--gold);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scroll-indicator .scroll-line::after {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--deep);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollPulse {
+    0% { top: -100%; }
+    50% { top: 100%; }
+    100% { top: 100%; }
+  }
+
+  /* ═══════════════════════════════════════
+     SECTION TRANSITIONS
+  ═══════════════════════════════════════ */
+  .section-divider {
+    width: 100%;
+    padding: 4rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .section-divider .floral-line {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .section-divider .floral-line .line {
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-light));
+  }
+
+  .section-divider .floral-line .line:last-child {
+    background: linear-gradient(90deg, var(--gold-light), transparent);
+  }
+
+  .section-divider .floral-line .dot {
+    width: 6px; height: 6px;
+    border: 1px solid var(--gold);
+    transform: rotate(45deg);
+  }
+
+  /* ═══════════════════════════════════════
+     REVEAL ANIMATIONS
+  ═══════════════════════════════════════ */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+  .reveal-delay-5 { transition-delay: 0.5s; }
+  .reveal-delay-6 { transition-delay: 0.6s; }
+
+  /* ═══════════════════════════════════════
+     WISHES GALLERY
+  ═══════════════════════════════════════ */
+  .wishes-section {
+    position: relative;
+    z-index: 2;
+    padding: 4rem 2rem 6rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-label {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4.5vw, 3.5rem);
+    font-weight: 600;
+    color: var(--deep);
+    line-height: 1.2;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--rose);
+  }
+
+  .wishes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+
+  .wish-card {
+    position: relative;
+    background: linear-gradient(145deg, rgba(255,255,255,0.85), rgba(250,246,240,0.9));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(201,169,110,0.2);
+    border-radius: 2px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    overflow: hidden;
+  }
+
+  .wish-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--blush), var(--gold), var(--rose));
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .wish-card::after {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border: 1px solid rgba(201,169,110,0.1);
+    border-radius: 1px;
+    pointer-events: none;
+    transition: border-color 0.5s ease;
+  }
+
+  .wish-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(44,26,29,0.08), 0 8px 24px rgba(181,86,107,0.06);
+    border-color: rgba(201,169,110,0.4);
+  }
+
+  .wish-card:hover::before {
+    opacity: 1;
+  }
+
+  .wish-card:hover::after {
+    border-color: rgba(201,169,110,0.25);
+  }
+
+  .wish-card .floral-icon {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    display: block;
+    opacity: 0.7;
+  }
+
+  .wish-card .wish-number {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+    display: block;
+  }
+
+  .wish-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--deep);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+
+  .wish-card p {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--deep-soft);
+  }
+
+  .wish-card .card-corner {
+    position: absolute;
+    width: 20px; height: 20px;
+    border-color: var(--gold-light);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .wish-card:hover .card-corner { opacity: 1; }
+
+  .wish-card .card-corner.tl { top: 14px; left: 14px; border-top: 1px solid; border-left: 1px solid; }
+  .wish-card .card-corner.tr { top: 14px; right: 14px; border-top: 1px solid; border-right: 1px solid; }
+  .wish-card .card-corner.bl { bottom: 14px; left: 14px; border-bottom: 1px solid; border-left: 1px solid; }
+    .wish-card .card-corner.br { bottom: 14px; right: 14px; border-bottom: 1px solid; border-right: 1px solid; }
+
+  /* ═══════════════════════════════════════
+     PHOTO GALLERY - Treasured Moments
+  ═══════════════════════════════════════ */
+  .photo-gallery-section {
+    position: relative;
+    z-index: 2;
+    padding: 6rem 2rem 8rem;
+    background: linear-gradient(180deg, rgba(242,196,206,0.03), transparent 40%, rgba(201,169,110,0.02) 80%, transparent);
+  }
+
+  .photo-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .photo-frame {
+    position: relative;
+    overflow: hidden;
+    background: var(--ivory-warm);
+    border: 1px solid rgba(201,169,110,0.15);
+    border-radius: 2px;
+    box-shadow: 0 15px 40px rgba(44,26,29,0.08);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .photo-frame:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 70px rgba(44,26,29,0.12);
+    border-color: var(--gold-light);
+  }
+
+  .photo-frame img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    display: block;
+    filter: contrast(1.05) saturate(1.1);
+    transition: transform 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .photo-frame:hover img {
+    transform: scale(1.08);
+  }
+
+  .photo-frame .photo-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(44,26,29,0.85) 0%, rgba(44,26,29,0.65) 40%, transparent 100%);
+    padding: 2.5rem 1.75rem 1.75rem;
+    transform: translateY(20px);
+    opacity: 0.95;
+    transition: all 0.5s ease;
+  }
+
+  .photo-frame:hover .photo-overlay {
+    transform: translateY(0);
+  }
+
+  .photo-frame .photo-caption {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    color: var(--ivory);
+    font-style: italic;
+    margin-bottom: 0.35rem;
+    line-height: 1.4;
+  }
+
+  .photo-frame .photo-year {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+  }
+
+  .photo-frame::before {
+    content: '';
+    position: absolute;
+    top: 12px; left: 12px; right: 12px; bottom: 12px;
+    border: 1px solid rgba(250,246,240,0.4);
+    pointer-events: none;
+    z-index: 2;
+    transition: border-color 0.5s ease;
+  }
+
+  .photo-frame:hover::before {
+    border-color: var(--gold-light);
+  }
+
+  /* ═══════════════════════════════════════
+     LOVE LETTER SECTION
+  ═══════════════════════════════════════ */
+  .love-letter-section {
+    position: relative;
+    z-index: 2;
+    padding: 6rem 2rem 8rem;
+    background: linear-gradient(180deg, transparent 0%, rgba(242,196,206,0.08) 30%, rgba(242,196,206,0.12) 70%, transparent 100%);
+  }
+
+  .love-letter-container {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .letter-opening {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 3rem;
+  }
+
+  .pull-quote {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 4vw, 3.2rem);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--rose);
+    line-height: 1.4;
+    margin: 3rem 0;
+    position: relative;
+    padding: 0 1rem;
+  }
+
+  .pull-quote::before {
+    content: '"';
+    font-family: var(--font-display);
+    font-size: 6rem;
+    position: absolute;
+    top: -2.5rem;
+    left: -0.5rem;
+    color: var(--gold-light);
+    line-height: 1;
+    opacity: 0.5;
+  }
+
+  .letter-body {
+    font-family: var(--font-body);
+    font-size: clamp(1.15rem, 2vw, 1.35rem);
+    font-weight: 400;
+    line-height: 2;
+    color: var(--deep-soft);
+    text-align: left;
+    margin: 2rem 0;
+  }
+
+  .letter-body p {
+    margin-bottom: 1.5rem;
+    text-indent: 2rem;
+  }
+
+  .letter-body p:first-child {
+    text-indent: 0;
+  }
+
+  .letter-signature {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--rose);
+    margin-top: 3rem;
+    text-align: right;
+    padding-right: 2rem;
+  }
+
+  /* ═══════════════════════════════════════
+     INTERACTIVE FLOWER BLOOM
+  ═══════════════════════════════════════ */
+  .bloom-section {
+    position: relative;
+    z-index: 2;
+    padding: 6rem 2rem 8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+  }
+
+  .bloom-instruction {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 3rem;
+    opacity: 1;
+    transition: opacity 0.6s ease;
+  }
+
+  .bloom-instruction.hidden { opacity: 0; }
+
+  .flower-container {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .flower-container:hover { transform: scale(1.03); }
+
+  .flower-svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .flower-svg .petal {
+    transform-origin: center bottom;
+    transition: all 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    fill: var(--blush);
+    stroke: var(--rose);
+    stroke-width: 0.5;
+  }
+
+  .flower-svg .petal-inner {
+    fill: var(--blush-light);
+    stroke: var(--blush);
+  }
+
+  .flower-svg .center-circle {
+    fill: var(--gold);
+    transition: all 0.8s ease;
+  }
+
+  .flower-svg .center-inner {
+    fill: var(--gold-light);
+  }
+
+  .flower-container.bloomed .petal { opacity: 1; }
+
+  .bloom-message {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s ease 0.6s;
+    z-index: 10;
+  }
+
+  .flower-container.bloomed .bloom-message {
+    opacity: 1;
+  }
+
+  .bloom-message h3 {
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
+    font-style: italic;
+    color: var(--rose-deep);
+    line-height: 1.4;
+    white-space: nowrap;
+  }
+
+  .bloom-message .bloom-sub {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    margin-top: 0.5rem;
+  }
+
+  .flower-stem {
+    width: 2px;
+    height: 0;
+    background: linear-gradient(to bottom, #6B8E5A, #4A6B3A);
+    margin: -10px auto 0;
+    transition: height 1s ease 0.3s;
+    border-radius: 1px;
+  }
+
+  .flower-container.bloomed + .flower-stem-wrapper .flower-stem {
+    height: 80px;
+  }
+
+  .flower-stem-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stem-leaf {
+    width: 0;
+    height: 0;
+    background: #6B8E5A;
+    border-radius: 0 50% 50% 0;
+    transition: all 0.8s ease 0.8s;
+    transform-origin: left center;
+    margin-top: -40px;
+    margin-left: 2px;
+  }
+
+  .flower-container.bloomed ~ .flower-stem-wrapper .stem-leaf {
+    width: 25px;
+    height: 12px;
+  }
+
+  /* ═══════════════════════════════════════
+     QUOTE CAROUSEL
+  ═══════════════════════════════════════ */
+  .quotes-section {
+    position: relative;
+    z-index: 2;
+    padding: 6rem 2rem 8rem;
+    background: linear-gradient(180deg, transparent, rgba(201,169,110,0.04) 30%, rgba(201,169,110,0.06) 70%, transparent);
+    overflow: hidden;
+  }
+
+  .quotes-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .quote-slide {
+    position: absolute;
+    width: 100%;
+    padding: 0 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    pointer-events: none;
+  }
+
+  .quote-slide.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .quote-text {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--deep);
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+
+  .quote-author {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .quote-dots {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 3rem;
+  }
+
+  .quote-dot {
+    width: 8px; height: 8px;
+    border: 1px solid var(--gold);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+    transform: rotate(45deg);
+  }
+
+  .quote-dot.active {
+    background: var(--gold);
+    transform: rotate(45deg) scale(1.2);
+  }
+
+  /* ═══════════════════════════════════════
+     FOOTER
+  ═══════════════════════════════════════ */
+  .footer {
+    position: relative;
+    z-index: 2;
+    padding: 5rem 2rem 3rem;
+    text-align: center;
+  }
+
+  .footer-message {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-style: italic;
+    color: var(--rose);
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-sub {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--deep-soft);
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.05em;
+  }
+
+  .animated-heart {
+    display: inline-block;
+    font-size: 1.5rem;
+    color: var(--rose);
+    animation: heartbeat 1.5s ease-in-out infinite;
+    cursor: default;
+  }
+
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    15% { transform: scale(1.15); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.1); }
+    60% { transform: scale(1); }
+  }
+
+  .footer-line {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+    margin: 2rem auto;
+  }
+
+  .footer-year {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    opacity: 0.6;
+  }
+
+  /* ═══════════════════════════════════════
+     KEYFRAMES
+  ═══════════════════════════════════════ */
+  @keyframes fadeSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes gentleFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  /* ═══════════════════════════════════════
+     PARALLAX LAYERS
+  ═══════════════════════════════════════ */
+  .parallax-layer {
+    will-change: transform;
+    transition: transform 0.1s linear;
+  }
+
+  /* ═══════════════════════════════════════
+     RESPONSIVE
+  ═══════════════════════════════════════ */
+  @media (max-width: 768px) {
+    .wishes-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .wish-card {
+      padding: 2rem 1.5rem;
+    }
+
+    .pull-quote::before {
+      font-size: 4rem;
+      top: -1.5rem;
+      left: 0;
+    }
+
+    .letter-body {
+      text-align: center;
+    }
+
+    .letter-body p {
+      text-indent: 0;
+    }
+
+    .letter-signature {
+      text-align: center;
+      padding-right: 0;
+    }
+
+    .flower-container {
+      width: 220px;
+      height: 220px;
+    }
+
+    .bloom-message h3 {
+      white-space: normal;
+      font-size: 1.1rem;
+    }
+
+    .section-divider .floral-line .line {
+      width: 40px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-title {
+      font-size: 2.6rem;
+    }
+
+    .wishes-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ═══════════════════════════════════════
+     SELECTION STYLING
+  ═══════════════════════════════════════ */
+  ::selection {
+    background: var(--blush);
+    color: var(--deep);
+  }
+
+  /* ═══════════════════════════════════════
+     SMOOTH SCROLLBAR
+  ═══════════════════════════════════════ */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--ivory);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--gold-light);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--gold);
+  }
+
+  /* Sparkle particles */
+  .sparkle-container {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .sparkle {
+    position: absolute;
+    width: 4px; height: 4px;
+    background: var(--gold);
+    border-radius: 50%;
+    opacity: 0;
+    animation: sparkleAnim 3s ease-in-out infinite;
+  }
+
+  @keyframes sparkleAnim {
+    0%, 100% { opacity: 0; transform: scale(0); }
+    50% { opacity: 1; transform: scale(1); }
+  }
+</style>
+</head>
+<body>
+
+<!-- Animated Gradient Mesh Background -->
+<div class="gradient-mesh" aria-hidden="true">
+  <div class="blob"></div>
+  <div class="blob"></div>
+  <div class="blob"></div>
+  <div class="blob"></div>
+</div>
+
+<!-- Petal Canvas -->
+<canvas id="petalCanvas" aria-hidden="true"></canvas>
+
+<!-- ═══════════════════════════════════════
+     HERO SECTION
+═══════════════════════════════════════ -->
+<header class="hero" role="banner">
+  <div class="sparkle-container" aria-hidden="true" id="sparkles"></div>
+  <div class="hero-ornament parallax-layer" data-speed="0.02"></div>
+  <p class="hero-subtitle-top parallax-layer" data-speed="0.03">A Celebration of Love</p>
+  <h1 class="hero-title parallax-layer" data-speed="0.05">
+    <span class="line"><span class="shimmer-text">Happy</span></span>
+    <span class="line"><span class="shimmer-text">Mother's Day</span></span>
+  </h1>
+  <p class="hero-subline parallax-layer" data-speed="0.04">To the woman who made everything possible — this day, and every day, belongs to you.</p>
+  <div class="hero-ornament-bottom parallax-layer" data-speed="0.02"></div>
+  <div class="scroll-indicator" aria-hidden="true">
+    <span>Discover</span>
+    <div class="scroll-line"></div>
+  </div>
+</header>
+
+<!-- Section Divider -->
+<div class="section-divider" aria-hidden="true">
+  <div class="floral-line">
+    <div class="line"></div>
+    <div class="dot"></div>
+    <div class="line"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     WISHES GALLERY
+═══════════════════════════════════════ -->
+<section class="wishes-section" aria-label="Mother's Day Wishes">
+  <div class="section-header reveal">
+    <span class="section-label">From Our Hearts</span>
+    <h2 class="section-title">Six Wishes, <em>One Love</em></h2>
+  </div>
+
+  <div class="wishes-grid">
+    <article class="wish-card reveal reveal-delay-1">
+      <span class="card-corner tl"></span>
+      <span class="card-corner tr"></span>
+      <span class="card-corner bl"></span>
+      <span class="card-corner br"></span>
+      <span class="floral-icon">🌸</span>
+      <span class="wish-number">— I —</span>
+      <h3>For Your Endless Warmth</h3>
+      <p>You are the golden light that fills every room you enter — a warmth that has held us through every storm and celebrated every sunrise. Today, we return that light to you.</p>
+    </article>
+
+    <article class="wish-card reveal reveal-delay-2">
+      <span class="card-corner tl"></span>
+      <span class="card-corner tr"></span>
+      <span class="card-corner bl"></span>
+      <span class="card-corner br"></span>
+      <span class="floral-icon">🌷</span>
+      <span class="wish-number">— II —</span>
+      <h3>For Your Quiet Strength</h3>
+      <p>The world may never know the weight you carried in silence — the sleepless nights, the sacrifices unseen. But we know. And we are forever grateful for the grace with which you bore it all.</p>
+    </article>
+
+    <article class="wish-card reveal reveal-delay-3">
+      <span class="card-corner tl"></span>
+      <span class="card-corner tr"></span>
+      <span class="card-corner bl"></span>
+      <span class="card-corner br"></span>
+      <span class="floral-icon">🌹</span>
+      <span class="wish-number">— III —</span>
+      <h3>For Your Boundless Joy</h3>
+      <p>Your laughter is the melody our family dances to. May this day bring you the same radiant happiness you've given us a thousand times over — you deserve every beautiful thing.</p>
+    </article>
+
+    <article class="wish-card reveal reveal-delay-4">
+      <span class="card-corner tl"></span>
+      <span class="card-corner tr"></span>
+      <span class="card-corner bl"></span>
+      <span class="card-corner br"></span>
+      <span class="floral-icon">🌺</span>
+      <span class="wish-number">— IV —</span>
+      <h3>For Your Gentle Wisdom</h3>
+      <p>Every piece of advice, every knowing glance, every "I told you so" delivered with love — your wisdom has been our compass. Thank you for always pointing us toward the light.</p>
+    </article>
+
+    <article class="wish-card reveal reveal-delay-5">
+      <span class="card-corner tl"></span>
+      <span class="card-corner tr"></span>
+      <span class="card-corner bl"></span>
+      <span class="card-corner br"></span>
+      <span class="floral-icon">💐</span>
+      <span class="wish-number">— V —</span>
+      <h3>For Your Unconditional Love</h3>
+      <p>You loved us before we knew how to love ourselves. Through every phase, every mistake, every triumph — your love remained the one constant we could always come home to.</p>
+    </article>
+
+    <article class="wish-card reveal reveal-delay-6">
+      <span class="card-corner tl"></span>
+      <span class="card-corner tr"></span>
+      <span class="card-corner bl"></span>
+      <span class="card-corner br"></span>
+      <span class="floral-icon">🌻</span>
+      <span class="wish-number">— VI —</span>
+      <h3>For Simply Being You</h3>
+      <p>Not every hero wears a cape. Some wear aprons, carry purses full of tissues, and have the supernatural ability to make everything better with a single hug. You are our hero.</p>
+    </article>
+  </div>
+</section>
+
+<!-- Section Divider -->
+<div class="section-divider" aria-hidden="true">
+  <div class="floral-line">
+    <div class="line"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="line"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     LOVE LETTER SECTION
+═══════════════════════════════════════ -->
+<section class="love-letter-section" aria-label="A Love Letter to Mothers">
+  <div class="love-letter-container">
+    <div class="letter-opening reveal">
+      <span class="section-label">A Letter Written in Love</span>
+    </div>
+
+    <div class="pull-quote reveal">
+      She was the first voice we ever heard, and the first heart we ever felt beat.
+    </div>
+
+    <div class="letter-body reveal">
+      <p>Dear Mother,</p>
+      <p>There are words that exist in no language — the ones that live in the space between a mother's heartbeat and her child's first breath. You carried us in that space, nurtured us in that silence, and loved us before we had a name.</p>
+      <p>You taught us that tenderness is not weakness, that patience is not passivity, and that the strongest force in the universe is a mother's love — quiet, fierce, and absolutely unbreakable.</p>
+      <p>Every flower that blooms remembers the soil that held it. Every star that shines remembers the darkness that cradled it. And every one of us, in every moment of our lives, remembers you.</p>
+    </div>
+
+    <div class="pull-quote reveal">
+      You are not just our mother. You are the reason we believe in love at all.
+    </div>
+
+    <div class="letter-signature reveal">
+      With all the love we hold,<br>
+      <em>— Your Children</em>
+    </div>
+  </div>
+</section>
+
+<!-- Section Divider -->
+<div class="section-divider" aria-hidden="true">
+  <div class="floral-line">
+    <div class="line"></div>
+    <div class="dot"></div>
+    <div class="line"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     TREASURED MOMENTS PHOTO GALLERY
+═══════════════════════════════════════ -->
+<section class="photo-gallery-section" aria-label="Treasured Moments">
+  <div class="section-header reveal">
+    <span class="section-label">A Story in Pictures</span>
+    <h2 class="section-title">Treasured <em>Moments</em></h2>
+  </div>
+
+  <div class="photo-grid">
+    <div class="photo-frame reveal reveal-delay-1">
+      <img src="photo1.png" alt="Mother holding her newborn baby in a pink dress, smiling warmly" loading="lazy">
+      <div class="photo-overlay">
+        <p class="photo-caption">The very beginning</p>
+        <span class="photo-year">— The First Days —</span>
+      </div>
+    </div>
+
+    <div class="photo-frame reveal reveal-delay-2">
+      <img src="photo2.png" alt="Mother sitting on the floor, embracing her baby with a joyful smile" loading="lazy">
+      <div class="photo-overlay">
+        <p class="photo-caption">First smiles, endless love</p>
+        <span class="photo-year">— Growing Together —</span>
+      </div>
+    </div>
+
+    <div class="photo-frame reveal reveal-delay-3">
+      <img src="photo3.png" alt="Mother in green kurta holding her toddler son in a red vest" loading="lazy">
+      <div class="photo-overlay">
+        <p class="photo-caption">Learning to stand tall</p>
+        <span class="photo-year">— The Little One Era —</span>
+      </div>
+    </div>
+
+    <div class="photo-frame reveal reveal-delay-4">
+      <img src="photo4.png" alt="Mother in pink sari holding her young child in yellow and white" loading="lazy">
+      <div class="photo-overlay">
+        <p class="photo-caption">Your curious eyes</p>
+        <span class="photo-year">— Watching You Grow —</span>
+      </div>
+    </div>
+
+    <div class="photo-frame reveal reveal-delay-5" style="grid-column: span 1;">
+      <img src="photo5.png" alt="Mother in blue and gold silk sari holding her child, surrounded by family photos" loading="lazy">
+      <div class="photo-overlay">
+        <p class="photo-caption">Always by your side</p>
+        <span class="photo-year">— Forever & Always —</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section Divider -->
+<div class="section-divider" aria-hidden="true">
+  <div class="floral-line">
+    <div class="line"></div>
+    <div class="dot"></div>
+    <div class="line"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     INTERACTIVE FLOWER BLOOM
+═══════════════════════════════════════ -->
+<section class="bloom-section" aria-label="Interactive Flower">
+  <span class="section-label reveal">A Gift That Blooms</span>
+  <p class="bloom-instruction reveal" id="bloomInstruction">Touch the flower to reveal its secret</p>
+
+  <div class="flower-container reveal" id="flowerContainer" role="button" tabindex="0" aria-label="Click to bloom the flower and reveal a hidden message">
+    <svg class="flower-svg" viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg">
+      <!-- Outer petals -->
+      <ellipse class="petal" cx="140" cy="90" rx="28" ry="55" transform="rotate(0, 140, 140)" style="transform-origin: 140px 140px; transform: rotate(0deg) scaleY(0.3); opacity: 0.6;" />
+      <ellipse class="petal" cx="140" cy="90" rx="28" ry="55" transform="rotate(45, 140, 140)" style="transform-origin: 140px 140px; transform: rotate(45deg) scaleY(0.3); opacity: 0.6;" />
+      <ellipse class="petal" cx="140" cy="90" rx="28" ry="55" transform="rotate(90, 140, 140)" style="transform-origin: 140px 140px; transform: rotate(90deg) scaleY(0.3); opacity: 0.6;" />
+      <ellipse class="petal" cx="140" cy="90" rx="28" ry="55" transform="rotate(135, 140, 140)" style="transform-origin: 140px 140px; transform: rotate(135deg) scaleY(0.3); opacity: 0.6;" />
+      <ellipse class="petal" cx="140" cy="90" rx="28" ry="55" transform="rotate(180, 140, 140)" style="transform-origin: 140px 140px; transform: rotate(180deg) scaleY(0.3); opacity: 0.6;" />
+      <ellipse class="petal" cx="140" cy="90" rx="28" ry="55" transform="rotate(225, 140, 140)" style="transform-origin: 140px 140px; transform: rotate(225deg) scaleY(0.3); opacity: 0.6;" />
+      <ellipse class="petal" cx="140" cy="90" rx="28" ry="55" transform="rotate(270, 140, 140)" style="transform-origin: 140px 140px; transform: rotate(270deg) scaleY(0.3); opacity: 0.6;" />
+      <ellipse class="petal" cx="140" cy="90" rx="28" ry="55" transform="rotate(315, 140, 140)" style="transform-origin: 140px 140px; transform: rotate(315deg) scaleY(0.3); opacity: 0.6;" />
+
+      <!-- Inner petals -->
+      <ellipse class="petal petal-inner" cx="140" cy="105" rx="18" ry="38" transform="rotate(22.5, 140, 140)" style="transform-origin: 140px 140px; transform: rotate(22.5deg) scaleY(0.2); opacity: 0.5;" />
+      <ellipse class="petal petal-inner" cx="140" cy="105" rx="18" ry="38" transform="rotate(67.5, 140, 140)" style="transform-origin: 140px 140px; transform: rotate(67.5deg) scaleY(0.2); opacity: 0.5;" />
+      <ellipse class="petal petal-inner" cx="140" cy="105" rx="18" ry="38" transform="rotate(112.5, 140, 140)" style="transform-origin: 140px 140px; transform: rotate(112.5deg) scaleY(0.2); opacity: 0.5;" />
+      <ellipse class="petal petal-inner" cx="140" cy="105" rx="18" ry="38" transform="rotate(157.5, 140, 140)" style="transform-origin: 140px 140px; transform: rotate(157.5deg) scaleY(0.2); opacity: 0.5;" />
+      <ellipse class="petal petal-inner" cx="140" cy="105" rx="18" ry="38" transform="rotate(202.5, 140, 140)" style="transform-origin: 140px 140px; transform: rotate(202.5deg) scaleY(0.2); opacity: 0.5;" />
+      <ellipse class="petal petal-inner" cx="140" cy="105" rx="18" ry="38" transform="rotate(247.5, 140, 140)" style="transform-origin: 140px 140px; transform: rotate(247.5deg) scaleY(0.2); opacity: 0.5;" />
+      <ellipse class="petal petal-inner" cx="140" cy="105" rx="18" ry="38" transform="rotate(292.5, 140, 140)" style="transform-origin: 140px 140px; transform: rotate(292.5deg) scaleY(0.2); opacity: 0.5;" />
+      <ellipse class="petal petal-inner" cx="140" cy="105" rx="18" ry="38" transform="rotate(337.5, 140, 140)" style="transform-origin: 140px 140px; transform: rotate(337.5deg) scaleY(0.2); opacity: 0.5;" />
+
+      <!-- Center -->
+      <circle class="center-circle" cx="140" cy="140" r="22" />
+      <circle class="center-inner" cx="140" cy="140" r="14" />
+      <circle cx="140" cy="140" r="6" fill="#E8D5A8" />
+    </svg>
+
+    <div class="bloom-message">
+      <h3>You are loved<br>beyond words</h3>
+      <p class="bloom-sub">✦ Always & Forever ✦</p>
+    </div>
+  </div>
+
+  <div class="flower-stem-wrapper reveal">
+    <div class="flower-stem"></div>
+    <div class="stem-leaf"></div>
+  </div>
+</section>
+
+<!-- Section Divider -->
+<div class="section-divider" aria-hidden="true">
+  <div class="floral-line">
+    <div class="line"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="line"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     QUOTE CAROUSEL
+═══════════════════════════════════════ -->
+<section class="quotes-section" aria-label="Famous Quotes About Mothers">
+  <div class="section-header reveal">
+    <span class="section-label">Words of Wisdom</span>
+    <h2 class="section-title">Voices That <em>Understood</em></h2>
+  </div>
+
+  <div class="quotes-container reveal">
+    <div class="quote-slide active" data-index="0">
+      <p class="quote-text">"A mother is she who can take the place of all others but whose place no one else can take."</p>
+      <p class="quote-author">— Cardinal Mermillod</p>
+    </div>
+    <div class="quote-slide" data-index="1">
+      <p class="quote-text">"The influence of a mother in the lives of her children is beyond calculation."</p>
+      <p class="quote-author">— James E. Faust</p>
+    </div>
+    <div class="quote-slide" data-index="2">
+      <p class="quote-text">"Motherhood: All love begins and ends there."</p>
+      <p class="quote-author">— Robert Browning</p>
+    </div>
+    <div class="quote-slide" data-index="3">
+      <p class="quote-text">"A mother's arms are more comforting than anyone else's."</p>
+      <p class="quote-author">— Princess Diana</p>
+    </div>
+    <div class="quote-slide" data-index="4">
+      <p class="quote-text">"Life doesn't come with a manual, it comes with a mother."</p>
+      <p class="quote-author">— Unknown</p>
+    </div>
+
+    <div class="quote-dots" role="tablist" aria-label="Quote navigation">
+      <button class="quote-dot active" data-index="0" role="tab" aria-label="Quote 1"></button>
+      <button class="quote-dot" data-index="1" role="tab" aria-label="Quote 2"></button>
+      <button class="quote-dot" data-index="2" role="tab" aria-label="Quote 3"></button>
+      <button class="quote-dot" data-index="3" role="tab" aria-label="Quote 4"></button>
+      <button class="quote-dot" data-index="4" role="tab" aria-label="Quote 5"></button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════ -->
+<footer class="footer" role="contentinfo">
+  <div class="reveal">
+    <p class="footer-message">With love, today and always.</p>
+    <p class="footer-sub">May this day bring you even a fraction of the joy you've given the world.</p>
+    <div class="animated-heart" aria-label="Beating heart">♥</div>
+    <div class="footer-line"></div>
+    <p class="footer-year">Mother's Day · 2026</p>
+  </div>
+</footer>
+
+<script>
+// ═══════════════════════════════════════
+// PETAL ANIMATION (Canvas)
+// ═══════════════════════════════════════
+(function() {
+  const canvas = document.getElementById('petalCanvas');
+  const ctx = canvas.getContext('2d');
+  let petals = [];
+  let w, h;
+
+  function resize() {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+  }
+
+  resize();
+  window.addEventListener('resize', resize);
+
+  const petalColors = [
+    'rgba(242, 196, 206, 0.6)',
+    'rgba(242, 196, 206, 0.4)',
+    'rgba(250, 221, 228, 0.5)',
+    'rgba(201, 169, 110, 0.3)',
+    'rgba(181, 86, 107, 0.25)',
+    'rgba(255, 230, 235, 0.5)',
+    'rgba(232, 213, 168, 0.35)',
+  ];
+
+  class Petal {
+    constructor() {
+      this.reset();
+      this.y = Math.random() * h;
+    }
+
+    reset() {
+      this.x = Math.random() * w;
+      this.y = -20;
+      this.size = Math.random() * 12 + 5;
+      this.speedY = Math.random() * 0.8 + 0.3;
+      this.speedX = Math.random() * 0.6 - 0.3;
+      this.rotation = Math.random() * Math.PI * 2;
+      this.rotationSpeed = (Math.random() - 0.5) * 0.02;
+      this.wobble = Math.random() * Math.PI * 2;
+      this.wobbleSpeed = Math.random() * 0.02 + 0.01;
+      this.wobbleAmount = Math.random() * 1.5 + 0.5;
+      this.color = petalColors[Math.floor(Math.random() * petalColors.length)];
+      this.opacity = Math.random() * 0.5 + 0.3;
+    }
+
+    update() {
+      this.wobble += this.wobbleSpeed;
+      this.x += this.speedX + Math.sin(this.wobble) * this.wobbleAmount * 0.3;
+      this.y += this.speedY;
+      this.rotation += this.rotationSpeed;
+
+      if (this.y > h + 20) {
+        this.reset();
+      }
+    }
+
+    draw() {
+      ctx.save();
+      ctx.translate(this.x, this.y);
+      ctx.rotate(this.rotation);
+      ctx.globalAlpha = this.opacity;
+      ctx.fillStyle = this.color;
+      ctx.beginPath();
+
+      // Draw petal shape
+      ctx.moveTo(0, -this.size);
+      ctx.bezierCurveTo(
+        this.size * 0.6, -this.size * 0.6,
+        this.size * 0.6, this.size * 0.3,
+        0, this.size
+      );
+      ctx.bezierCurveTo(
+        -this.size * 0.6, this.size * 0.3,
+        -this.size * 0.6, -this.size * 0.6,
+        0, -this.size
+      );
+      ctx.fill();
+      ctx.restore();
+    }
+  }
+
+  // Create petals
+  const petalCount = Math.min(Math.floor(w / 25), 45);
+  for (let i = 0; i < petalCount; i++) {
+    petals.push(new Petal());
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, w, h);
+    petals.forEach(p => {
+      p.update();
+      p.draw();
+    });
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+})();
+
+// ═══════════════════════════════════════
+// SPARKLE EFFECT ON HERO
+// ═══════════════════════════════════════
+(function() {
+  const container = document.getElementById('sparkles');
+  const heroTitle = document.querySelector('.hero-title');
+
+  function createSparkle() {
+    const sparkle = document.createElement('div');
+    sparkle.className = 'sparkle';
+    const rect = heroTitle.getBoundingClientRect();
+    const heroRect = heroTitle.closest('.hero').getBoundingClientRect();
+
+    sparkle.style.left = (rect.left - heroRect.left + Math.random() * rect.width) + 'px';
+    sparkle.style.top = (rect.top - heroRect.top + Math.random() * rect.height) + 'px';
+    sparkle.style.width = (Math.random() * 4 + 2) + 'px';
+    sparkle.style.height = sparkle.style.width;
+    sparkle.style.animationDuration = (Math.random() * 2 + 2) + 's';
+    sparkle.style.animationDelay = (Math.random() * 2) + 's';
+
+    container.appendChild(sparkle);
+
+    setTimeout(() => sparkle.remove(), 5000);
+  }
+
+  setInterval(createSparkle, 400);
+})();
+
+// ═══════════════════════════════════════
+// SCROLL REVEAL ANIMATIONS
+// ═══════════════════════════════════════
+(function() {
+  const reveals = document.querySelectorAll('.reveal');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.15,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  reveals.forEach(el => observer.observe(el));
+})();
+
+// ═══════════════════════════════════════
+// PARALLAX EFFECT
+// ═══════════════════════════════════════
+(function() {
+  const layers = document.querySelectorAll('.parallax-layer');
+  let ticking = false;
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const scrollY = window.pageYOffset;
+        layers.forEach(layer => {
+          const speed = parseFloat(layer.dataset.speed) || 0.05;
+          layer.style.transform = `translateY(${scrollY * speed * -1}px)`;
+        });
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+})();
+
+// ═══════════════════════════════════════
+// INTERACTIVE FLOWER BLOOM
+// ═══════════════════════════════════════
+(function() {
+  const flower = document.getElementById('flowerContainer');
+  const instruction = document.getElementById('bloomInstruction');
+  let bloomed = false;
+
+  function bloomFlower() {
+    if (bloomed) return;
+    bloomed = true;
+
+    flower.classList.add('bloomed');
+    instruction.classList.add('hidden');
+
+    const outerPetals = flower.querySelectorAll('.petal:not(.petal-inner)');
+    const innerPetals = flower.querySelectorAll('.petal-inner');
+
+    outerPetals.forEach((petal, i) => {
+      const angle = i * 45;
+      setTimeout(() => {
+        petal.style.transform = `rotate(${angle}deg) scaleY(1) translateY(-10px)`;
+        petal.style.opacity = '0.85';
+      }, i * 60);
+    });
+
+    innerPetals.forEach((petal, i) => {
+      const angle = 22.5 + i * 45;
+      setTimeout(() => {
+        petal.style.transform = `rotate(${angle}deg) scaleY(0.85) translateY(-5px)`;
+        petal.style.opacity = '0.75';
+      }, 300 + i * 50);
+    });
+
+    // Animate center
+    const center = flower.querySelector('.center-circle');
+    setTimeout(() => {
+      center.style.r = '26';
+    }, 600);
+  }
+
+  flower.addEventListener('click', bloomFlower);
+  flower.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      bloomFlower();
+    }
+  });
+})();
+
+// ═══════════════════════════════════════
+// QUOTE CAROUSEL
+// ═══════════════════════════════════════
+(function() {
+  const slides = document.querySelectorAll('.quote-slide');
+  const dots = document.querySelectorAll('.quote-dot');
+  let current = 0;
+  let interval;
+
+  function showQuote(index) {
+    slides.forEach(s => s.classList.remove('active'));
+    dots.forEach(d => d.classList.remove('active'));
+    slides[index].classList.add('active');
+    dots[index].classList.add('active');
+    current = index;
+  }
+
+  function nextQuote() {
+    showQuote((current + 1) % slides.length);
+  }
+
+  function startAutoRotate() {
+    interval = setInterval(nextQuote, 5000);
+  }
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      clearInterval(interval);
+      showQuote(parseInt(dot.dataset.index));
+      startAutoRotate();
+    });
+  });
+
+  startAutoRotate();
+})();
+
+// ═══════════════════════════════════════
+// SMOOTH SCROLL INDICATOR
+// ═══════════════════════════════════════
+(function() {
+  const scrollIndicator = document.querySelector('.scroll-indicator');
+  if (scrollIndicator) {
+    scrollIndicator.addEventListener('click', () => {
+      const wishesSection = document.querySelector('.wishes-section');
+      if (wishesSection) {
+        wishesSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+    scrollIndicator.style.cursor = 'pointer';
+  }
+})();
+
+// ═══════════════════════════════════════
+// WISH CARD TILT EFFECT
+// ═══════════════════════════════════════
+(function() {
+  const cards = document.querySelectorAll('.wish-card');
+
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = (y - centerY) / centerY * -3;
+      const rotateY = (x - centerX) / centerX * 3;
+
+      card.style.transform = `translateY(-6px) perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'translateY(0) perspective(800px) rotateX(0) rotateY(0)';
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
